@@ -1,0 +1,40 @@
+/* download link page/ */
+
+#target {
+    text-align: center;
+}
+
+#target a {
+    display: inline-block;
+    padding: 20px 30px;
+    text-decoration: none;
+    border: 1px solid black;
+    color: teal;
+    font-weight: 700;
+    border-radius: 5px;
+    position: relative;
+
+}
+
+#target a:hover {
+    background-color: rgb(233, 232, 232);
+    top: 2px;
+}
+
+.last-ele {
+    color: red;
+}
+
+.current-ele {
+    color: teal;
+}
+
+
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
