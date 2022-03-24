@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import useStyles from '../styles/PlaylistControlsStyles';
 
 const PlaylistControls = (props) => {
-    const { channelsRight, channelsLeft, setChannelsRight, setChannelsLeft, highlighted, setHighlighted } = props;
+    const navigate = useNavigate();
+    const { channelsRight, channelsLeft, setChannelsRight, setChannelsLeft, highlighted, setHighlighted, setSelectedChannels } = props;
     const [submitAllowed, setSubmitAllowed] = useState(false);
     const classes = useStyles();
 
@@ -18,6 +20,11 @@ const PlaylistControls = (props) => {
         setHighlighted([]);
     }
 
+    const generateChannels = (e) => {
+        setSelectedChannels(channelsRight);
+        navigate('/result');
+    }
+
     useEffect(() => {
         channelsRight.length > 0 ? setSubmitAllowed(true) : setSubmitAllowed(false);
     }, [channelsRight])
@@ -31,7 +38,7 @@ const PlaylistControls = (props) => {
                     <button onClick={moveChannelLeft} id='moveLeft'>&#8592;</button>
                 </div>
                 <div className={classes.bottomButton}>
-                    <button disabled={!submitAllowed} className={classes.generateButton}>GENERATE PLAYLIST</button>
+                    <button disabled={!submitAllowed} className={classes.generateButton} onClick={generateChannels}>GENERATE PLAYLIST</button>
                 </div>
             </div>
         </div>

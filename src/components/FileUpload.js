@@ -4,7 +4,7 @@ import useStyles from '../styles/FileUploadStyles';
 import parser from 'iptv-playlist-parser';
 
 const FileUpload = (props) => {
-  const { allChannels, setAllChannels } = props;
+  const { setAllChannels } = props;
   const classes = useStyles();
   const [error, setError] = useState(null);
   const [allowSubmit, toggleSubmitStatus] = useState(false);
@@ -16,9 +16,10 @@ const FileUpload = (props) => {
       const reader = new FileReader();
       const target = e.target;
       reader.onload = (e) => {
-        localStorage.setItem('channels', e.target.result);
-        // setAllChannels(parser.parse(window.localStorage.getItem('channels')));
-        // setAllChannels(parser.parse(e.target.result));
+        // localStorage.setItem('channels', e.target.result);
+        const channels = parser.parse(e.target.result);
+        const uniqueChannels = [...new Map(channels.items.map((item) => [item.name, item])).values()]; parser.parse(e.target.result);
+        setAllChannels(uniqueChannels);
       }
       if (target.files[0]) {
         reader.readAsText(target.files[0]);

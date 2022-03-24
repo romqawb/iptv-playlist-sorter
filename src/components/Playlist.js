@@ -1,22 +1,23 @@
 import { useState } from 'react';
-import parser from 'iptv-playlist-parser';
 import useStyles from '../styles/PlaylistStyles';
 import ChannelList from './ChannelList';
 import Filter from './Filter';
 import PlaylistHeader from './PlaylistHeader';
 import PlaylistControls from './PlaylistControls';
+import Error from './Error';
 
-const Playlist = () => {
+const Playlist = (props) => {
+    const { allChannels, setSelectedChannels } = props;
     const classes = useStyles();
-    const channels = parser.parse(window.localStorage.getItem('channels'));
-    const uniqueChannels = [...new Map(channels.items.map((item) => [item.name, item])).values()];
     const channelGroups = [];
-    uniqueChannels.map(channel => !channelGroups.includes(channel.group.title) ? channelGroups.push(channel.group.title) : null)
+    allChannels.map(channel => !channelGroups.includes(channel.group.title) ? channelGroups.push(channel.group.title) : null)
     const [selectedGroups, setSelectedGroups] = useState(channelGroups);
-    const [channelsLeft, setChannelsLeft] = useState(uniqueChannels.map(channel => {
+    const [channelsLeft, setChannelsLeft] = useState(allChannels.map(channel => {
         return ({
             name: channel.name,
-            group: channel.group.title
+            group: channel.group.title,
+            rec: channel.tvg.rec,
+            url: channel.url
         })
     }));
     const [channelsRight, setChannelsRight] = useState([]);
@@ -25,8 +26,9 @@ const Playlist = () => {
     return (
         <div className={classes.playlistContainer}>
             <PlaylistHeader />
+            <Error allChannels={allChannels} />
             <Filter
-                channels={uniqueChannels}
+                channels={allChannels}
                 setSelectedGroups={setSelectedGroups}
                 channelGroups={channelGroups}
             />
@@ -44,6 +46,7 @@ const Playlist = () => {
                     setChannelsLeft={setChannelsLeft}
                     highlighted={highlighted}
                     setHighlighted={setHighlighted}
+                    setSelectedChannels={setSelectedChannels}
                 />
                 <ChannelList
                     channels={channelsRight}

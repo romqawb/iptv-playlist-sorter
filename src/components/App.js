@@ -10,7 +10,7 @@ const App = () => {
     return (
         <Routes>
             <Route path='/' element={<FileUpload setAllChannels={setAllChannels} />} />
-            <Route path='/playlist' element={<Playlist allChannels={allChannels} setAllChannels={setAllChannels} selectedChannels={selectedChannels} setSelectedChannels={setSelectedChannels} />} />
+            <Route path='/playlist' element={<Playlist allChannels={allChannels} setSelectedChannels={setSelectedChannels} />} />
             <Route path='/result' element={<Result selectedChannels={selectedChannels} />} />
         </Routes>
     )
