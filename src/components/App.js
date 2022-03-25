@@ -3,7 +3,7 @@ import { useState } from 'react';
 import FileUpload from './FileUpload';
 import Playlist from './Playlist';
 import Result from './Result';
-import '../styles/styles.css';
+
 const App = () => {
     const [allChannels, setAllChannels] = useState([]);
     const [selectedChannels, setSelectedChannels] = useState([]);

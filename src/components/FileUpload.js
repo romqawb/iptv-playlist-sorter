@@ -16,7 +16,6 @@ const FileUpload = (props) => {
       const reader = new FileReader();
       const target = e.target;
       reader.onload = (e) => {
-        // localStorage.setItem('channels', e.target.result);
         const channels = parser.parse(e.target.result);
         const uniqueChannels = [...new Map(channels.items.map((item) => [item.name, item])).values()]; parser.parse(e.target.result);
         setAllChannels(uniqueChannels);
@@ -62,7 +61,7 @@ const FileUpload = (props) => {
         <input className={classes.hiddenForm} type="file" id='playlist' onChange={handleChange} />
         <button className={classes.fileSubmitButtons} disabled={!allowSubmit} type='submit'>UPLOAD FILE</button>
       </form>
-      <h3>{fileName ? `Selected file: ${fileName}` : 'No file selected'}</h3>
+      <h3 className={classes.fileName}>{fileName ? `Selected file: ${fileName}` : 'No file selected'}</h3>
       <h2 className={classes.fileError}>{error ? error : null}</h2>
     </div>
   );

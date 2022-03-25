@@ -1,4 +1,4 @@
-import useStyles from '../styles/Error';
+import useStyles from '../styles/ErrorStyles';
 const Error = (props) => {
     const { allChannels } = props;
     const classes = useStyles();

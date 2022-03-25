@@ -12,7 +12,7 @@ const useStyles = makeStyles({
             height: '50px',
             fontSize: '2rem',
             width: '75px',
-            margin: '0 5px 20px 5px'
+            margin: '0 5px 20px 5px',
         }
     },
     bottomButton: {
@@ -21,7 +21,11 @@ const useStyles = makeStyles({
     },
     generateButton: {
         width: '150px',
-        height: '50px'
+        height: '50px',
+        cursor: 'pointer',
+        "&[disabled]": {
+            cursor: 'not-allowed',
+        }
     }
 
 })

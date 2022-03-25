@@ -4,7 +4,7 @@ const useStyles = makeStyles({
     error: {
         textAlign: 'center',
         letterSpacing: '2px',
-        color: 'rgba(255,0,0,0.8)'
+        color: 'brown'
     }
 })
 
