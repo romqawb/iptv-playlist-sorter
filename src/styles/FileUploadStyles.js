@@ -12,7 +12,8 @@ const useStyles = makeStyles({
         border: '3px solid rgb(53,118,202)',
         borderRadius: '25px',
         '& > h1': {
-            letterSpacing: '2px'
+            letterSpacing: '3px',
+            color: 'rgb(220,220,220)'
         }
     },
     fileSubmitForm: {
@@ -21,7 +22,6 @@ const useStyles = makeStyles({
     },
     fileSubmitButtons: {
         backgroundColor: 'rgb(83,72,245)',
-        fontSize: '1.25rem',
         letterSpacing: '2px',
         color: 'white',
         outline: 'none',
@@ -32,12 +32,13 @@ const useStyles = makeStyles({
         height: '50px',
         margin: '0.5rem auto',
         cursor: 'pointer',
+        fontWeight: '700',
         '&:hover': {
             backgroundColor: 'rgb(104,120,238)'
         },
         "&[disabled]": {
             cursor: 'not-allowed',
-            backgroundColor: 'rgba(83,72,245,0.6)'
+            backgroundColor: 'rgba(83,72,245,0.2)'
         },
 
     },

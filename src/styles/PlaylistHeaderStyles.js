@@ -3,7 +3,8 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
     header: {
         textAlign: 'center',
-        letterSpacing: '2px',
+        letterSpacing: '3px',
+        color: 'rgb(220,220,220)',
         '& > h1': {
             textTransform: 'uppercase',
         },
@@ -16,7 +17,8 @@ const useStyles = makeStyles({
         },
         '& > p > span': {
             fontWeight: '700',
-            textTransform: 'uppercase'
+            textTransform: 'uppercase',
+            color: 'rgb(130,225,240)',
         }
     },
 })

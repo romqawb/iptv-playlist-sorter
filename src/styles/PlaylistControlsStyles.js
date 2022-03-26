@@ -13,6 +13,14 @@ const useStyles = makeStyles({
             fontSize: '2rem',
             width: '75px',
             margin: '0 5px 20px 5px',
+            backgroundColor: 'rgb(83,72,245)',
+            border: 'none',
+            borderRadius: '25px',
+            color: 'white',
+            cursor: 'pointer',
+            '&:hover': {
+                backgroundColor: 'rgb(104,120,238)'
+            }
         }
     },
     bottomButton: {
@@ -22,9 +30,20 @@ const useStyles = makeStyles({
     generateButton: {
         width: '150px',
         height: '50px',
+        backgroundColor: 'rgb(83,72,245)',
+        border: 'none',
+        borderRadius: '25px',
+        padding: '0 1rem',
         cursor: 'pointer',
+        color: 'white',
+        fontWeight: '700',
+        letterSpacing: '2px',
+        '&:hover': {
+            backgroundColor: 'rgb(104,120,238)'
+        },
         "&[disabled]": {
             cursor: 'not-allowed',
+            backgroundColor: 'rgba(83,72,245,0.2)'
         }
     }
 

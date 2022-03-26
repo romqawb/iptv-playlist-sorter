@@ -10,11 +10,8 @@ code {
 }
 button {
   font-family: 'Courier New';
-  letter-spacing: 0.5px;
-  font-weight: 700;
-  color: teal;
 }
 .selected {
   color: white;
-  background-color: black;
+  background-color: rgb(53,118,202);
 }

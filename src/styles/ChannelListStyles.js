@@ -3,14 +3,15 @@ const useStyles = makeStyles({
     channelList: {
         width: '40vw',
         textAlign: 'center',
-        border: '1px solid black',
-        borderRadius: '5px',
+        border: '3px solid rgb(53,118,202)',
+        borderRadius: '25px',
         '& > ul': {
             listStyle: 'none',
             paddingLeft: '0'
         },
         '& > ul > li': {
-            userSelect: 'none'
+            userSelect: 'none',
+            color: 'white'
         }
     }
 })

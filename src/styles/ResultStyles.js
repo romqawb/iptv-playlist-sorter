@@ -4,32 +4,31 @@ const useStyles = makeStyles({
     downloadContainer: {
         width: '70%',
         margin: '10rem auto',
-        border: '1px solid black',
+        border: '3px solid rgb(53,118,202)',
+        backgroundColor: 'rgb(21,4,69)',
         textAlign: 'center',
-        padding: '2rem',
+        letterSpacing: '2px',
+        padding: '1rem',
         borderRadius: '25px',
-        '& > h1': {
-            color: 'brown'
-        },
+        color: 'rgb(243,255,255)',
         '& > p': {
-            fontWeight: '700'
+            fontWeight: '700',
+            color: 'rgb(130,225,240)'
         }
     },
     downloadButton: {
-        display: 'inline-block',
         padding: '20px 30px',
-        textDecoration: 'none',
-        border: '0.5px solid black',
-        color: 'teal',
+        border: 'none',
+        color: 'white',
         fontWeight: '700',
-        borderRadius: '5px',
+        letterSpacing: '2px',
+        borderRadius: '25px',
         position: 'relative',
         transition: 'all 0.2s ease-in-out',
-        backgroundColor: 'rgb(239,239,239)',
+        backgroundColor: 'rgb(83,72,245)',
+        cursor: 'pointer',
         '&:hover': {
-            backgroundColor: 'rgb(229,229,229)',
-            boxShadow: '0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)',
-            cursor: 'pointer'
+            backgroundColor: 'rgb(104,120,238)',
         }
     }
 })

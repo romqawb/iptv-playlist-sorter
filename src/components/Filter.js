@@ -20,7 +20,7 @@ const Filter = (props) => {
         groups = (
             channelGroups.map(group => {
                 return (
-                    <label key={group} htmlFor={group}>{group}
+                    <label key={group} htmlFor={group}> {group} -
                         <input className="group-checkbox" type="checkbox" defaultChecked onChange={handleFilter} name={group} id={group} />
                     </label>
                 )
