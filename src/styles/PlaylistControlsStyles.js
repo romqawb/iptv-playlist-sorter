@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
     sticky: {
         position: 'sticky',
-        top: '50%'
+        top: '25%'
     },
     topButtons: {
         display: 'flex',

@@ -9,7 +9,15 @@ const useStyles = makeStyles({
         display: 'flex',
         justifyContent: 'space-around'
     },
-
+    shiftInstructions: {
+        color: 'white',
+        textAlign: 'center',
+        letterSpacing: '1px',
+        '& > span': {
+            color: 'rgb(130,225,240)',
+            fontWeight: '700'
+        }
+    }
 })
 
 export default useStyles;

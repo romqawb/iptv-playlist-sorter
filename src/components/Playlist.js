@@ -33,6 +33,7 @@ const Playlist = (props) => {
                     setSelectedGroups={setSelectedGroups}
                     channelGroups={channelGroups}
                 />
+                <p className={classes.shiftInstructions}>You can use <span>'click + Shift'</span> to select more then one channel at the time.</p>
                 <div className={classes.mainContainer}>
                     <ChannelList
                         channels={channelsLeft}

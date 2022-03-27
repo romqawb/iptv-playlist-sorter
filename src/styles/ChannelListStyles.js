@@ -2,6 +2,7 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
     channelList: {
         width: '40vw',
+        minHeight: '300px',
         textAlign: 'center',
         border: '3px solid rgb(53,118,202)',
         borderRadius: '25px',

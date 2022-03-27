@@ -35,6 +35,6 @@ const generateFakePlaylist = (numberOfChannels, groupList) => {
     return result;
 }
 
-const FakePlaylistFile = generateFakePlaylist(10, ['Sports', 'Nature', 'Movies', 'Music']);
+const FakePlaylistFile = generateFakePlaylist(20, ['Sports', 'Nature', 'Movies', 'Music']);
 
 export default FakePlaylistFile;
