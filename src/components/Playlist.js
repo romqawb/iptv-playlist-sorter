@@ -37,7 +37,6 @@ const Playlist = (props) => {
                     <ChannelList
                         channels={channelsLeft}
                         groups={selectedGroups}
-                        highlighted={highlighted}
                         setHighlighted={setHighlighted}
                     />
                     <PlaylistControls
@@ -52,7 +51,6 @@ const Playlist = (props) => {
                     <ChannelList
                         channels={channelsRight}
                         groups={false}
-                        highlighted={highlighted}
                         setHighlighted={setHighlighted}
                     />
                 </div>
@@ -67,8 +65,6 @@ const Playlist = (props) => {
                 {content}
             </div>
         </div>
-
-
     )
 }
 

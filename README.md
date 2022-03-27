@@ -1,0 +1,1 @@
+#React app that allows to upload m3u8 iptv playlists and sort them accordingly

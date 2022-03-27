@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import useStyles from '../styles/FileUploadStyles';
 import parser from 'iptv-playlist-parser';
+import FakePlaylist from './FakePlaylist';
 
 const FileUpload = (props) => {
   const { setAllChannels } = props;
@@ -18,6 +19,7 @@ const FileUpload = (props) => {
       reader.onload = (e) => {
         const channels = parser.parse(e.target.result);
         const uniqueChannels = [...new Map(channels.items.map((item) => [item.name, item])).values()]; parser.parse(e.target.result);
+        console.log(uniqueChannels);
         setAllChannels(uniqueChannels);
       }
       if (target.files[0]) {
@@ -53,17 +55,21 @@ const FileUpload = (props) => {
   }
 
   return (
-    <div className={classes.container}>
-      <h1>Upload your m3u8 playlist here</h1>
-      <form className={classes.fileSubmitForm} onSubmit={handleSubmit}>
-        <label className={classes.fileSubmitFormLabel} htmlFor="playlist">Select m3u8 playlist</label>
-        <button className={classes.fileSubmitButtons} id='selectFile' onClick={handleSelectButton}>SELECT FILE</button>
-        <input className={classes.hiddenForm} type="file" id='playlist' onChange={handleChange} />
-        <button className={classes.fileSubmitButtons} disabled={!allowSubmit} type='submit'>UPLOAD FILE</button>
-      </form>
-      <h3 className={classes.fileName}>{fileName ? `Selected file: ${fileName}` : 'No file selected'}</h3>
-      <h2 className={classes.fileError}>{error ? error : null}</h2>
-    </div>
+    <>
+      <div className={classes.container}>
+        <h1>Upload your m3u8 playlist here</h1>
+        <form className={classes.fileSubmitForm} onSubmit={handleSubmit}>
+          <label className={classes.fileSubmitFormLabel} htmlFor="playlist">Select m3u8 playlist</label>
+          <button className={classes.fileSubmitButtons} id='selectFile' onClick={handleSelectButton}>SELECT FILE</button>
+          <input className={classes.hiddenForm} type="file" id='playlist' onChange={handleChange} />
+          <button className={classes.fileSubmitButtons} disabled={!allowSubmit} type='submit'>UPLOAD FILE</button>
+        </form>
+        <h3 className={classes.fileName}>{fileName ? `Selected file: ${fileName}` : 'No file selected'}</h3>
+        <h2 className={classes.fileError}>{error ? error : null}</h2>
+      </div>
+      <FakePlaylist setAllChannels={setAllChannels} />
+    </>
+
   );
 }
 
