@@ -12,13 +12,6 @@ const useStyles = makeStyles({
             height: '50px',
             textTransform: 'uppercase',
             margin: '40px auto'
-        },
-        '& > form > label > input[type="checkbox"]': {
-
-            // appearance: 'none',
-            backgroundColor: 'pink',
-
-            // display: 'none'
         }
     },
 })

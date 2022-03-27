@@ -46,7 +46,6 @@ const useStyles = makeStyles({
             backgroundColor: 'rgba(83,72,245,0.2)'
         }
     }
-
 })
 
 export default useStyles;
