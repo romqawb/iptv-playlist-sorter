@@ -1,17 +1,49 @@
 import useStyles from '../styles/ChannelListStyles';
+import { useState } from 'react';
 
 const ChannelList = (props) => {
-    const { channels, groups, highlighted, setHighlighted } = props;
+    const { channels, groups, setHighlighted } = props;
     const classes = useStyles();
-    const handleClick = (e) => {
-        e.target.classList.toggle('selected');
-        if (!highlighted.includes(e.target.innerHTML)) {
-            setHighlighted([...highlighted, e.target.innerHTML])
-        } else {
-            setHighlighted(highlighted.filter(channel => channel !== e.target.innerHTML))
-        }
-    }
+    const [lastEle, setLastEle] = useState(null);
     let content;
+
+    const handleClick = (e) => {
+        if (e.shiftKey) {
+            const lis = document.querySelectorAll(`.${e.target.parentNode.classList.value} li`);
+            const liArr = [...lis];
+            let remove;
+            e.target.classList.toggle('selected');
+            e.target.classList.value === 'selected' ? remove = false : remove = true;
+            let currentEleIndex = liArr.indexOf(e.target);
+            let lastEleIndex = liArr.indexOf(lastEle);
+            if (currentEleIndex > lastEleIndex) {
+                while (currentEleIndex !== lastEleIndex) {
+                    if (remove) {
+                        lis.item(currentEleIndex).classList.remove('selected');
+                    } else {
+                        lis.item(currentEleIndex).classList.add('selected');
+                    }
+                    currentEleIndex--;
+                }
+            } else {
+                while (lastEleIndex !== currentEleIndex) {
+                    if (remove) {
+                        lis.item(currentEleIndex).classList.remove('selected');
+                    } else {
+                        lis.item(currentEleIndex).classList.add('selected');
+                    }
+                    currentEleIndex++;
+                }
+            }
+        } else {
+            e.target.classList.toggle('selected');
+            setLastEle(e.target);
+        }
+        const selectedLis = [...document.querySelectorAll(`.${e.target.parentNode.classList.value} li.selected`)];
+        const selectedChannels = selectedLis.map(item => item.innerHTML);
+        setHighlighted(selectedChannels);
+    }
+
     if (Object.keys(channels).length !== 0) {
         if (groups) {
             content = (
@@ -29,9 +61,10 @@ const ChannelList = (props) => {
             )
         }
     }
+
     return (
         <div className={classes.channelList}>
-            <ul>
+            <ul className='channelContainer'>
                 {content}
             </ul>
         </div>

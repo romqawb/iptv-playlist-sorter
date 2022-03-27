@@ -3,8 +3,7 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
     playlistContainer: {
         width: '90%',
-        margin: '0 auto',
-        marginTop: '3rem'
+        margin: '3rem auto',
     },
     mainContainer: {
         display: 'flex',

@@ -8,16 +8,22 @@ const PlaylistControls = (props) => {
     const [submitAllowed, setSubmitAllowed] = useState(false);
     const classes = useStyles();
 
+    const removeSelectedClass = () => {
+        document.querySelectorAll('li').forEach(li => li.classList.remove('selected'));
+    }
+
     const moveChannelRight = (e) => {
         setChannelsRight([...channelsRight, ...channelsLeft.filter(channel => highlighted.includes(channel.name))]);
         setChannelsLeft(channelsLeft.filter(channel => !highlighted.includes(channel.name)));
         setHighlighted([]);
+        removeSelectedClass();
     }
 
     const moveChannelLeft = (e) => {
         setChannelsLeft([...channelsLeft, ...channelsRight.filter(channel => highlighted.includes(channel.name))])
         setChannelsRight([...channelsRight.filter(channel => !highlighted.includes(channel.name))]);
         setHighlighted([]);
+        removeSelectedClass();
     }
 
     const generateChannels = (e) => {

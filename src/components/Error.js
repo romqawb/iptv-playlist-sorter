@@ -1,14 +1,21 @@
 import useStyles from '../styles/ErrorStyles';
-const Error = (props) => {
-    const { allChannels } = props;
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
+
+const Error = () => {
     const classes = useStyles();
-    let content = (
-        allChannels.length <= 0 ? <h3 className={classes.error}>Please upload a playlist on the main page!</h3> : null
-    )
+    const [counter, setCounter] = useState(3);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
+        counter === 0 && navigate('/');
+    })
     return (
-        <>
-            {content}
-        </>
+        <div className={classes.errorContainer}>
+            <h1>Please upload a playlist on the main page</h1>
+            <p>Redirecting in {counter} seconds</p>
+        </div>
     )
 }
 

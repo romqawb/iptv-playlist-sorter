@@ -22,40 +22,53 @@ const Playlist = (props) => {
     }));
     const [channelsRight, setChannelsRight] = useState([]);
     const [highlighted, setHighlighted] = useState([]);
+    let content;
+
+    if (allChannels.length > 0) {
+        content = (
+            <div className={classes.playlistContainer}>
+                <PlaylistHeader />
+                <Filter
+                    channels={allChannels}
+                    setSelectedGroups={setSelectedGroups}
+                    channelGroups={channelGroups}
+                />
+                <div className={classes.mainContainer}>
+                    <ChannelList
+                        channels={channelsLeft}
+                        groups={selectedGroups}
+                        highlighted={highlighted}
+                        setHighlighted={setHighlighted}
+                    />
+                    <PlaylistControls
+                        channelsRight={channelsRight}
+                        channelsLeft={channelsLeft}
+                        setChannelsRight={setChannelsRight}
+                        setChannelsLeft={setChannelsLeft}
+                        highlighted={highlighted}
+                        setHighlighted={setHighlighted}
+                        setSelectedChannels={setSelectedChannels}
+                    />
+                    <ChannelList
+                        channels={channelsRight}
+                        groups={false}
+                        highlighted={highlighted}
+                        setHighlighted={setHighlighted}
+                    />
+                </div>
+            </div>)
+    } else {
+        content = <Error />
+    }
 
     return (
         <div className={classes.playlistContainer}>
-            <PlaylistHeader />
-            <Error allChannels={allChannels} />
-            <Filter
-                channels={allChannels}
-                setSelectedGroups={setSelectedGroups}
-                channelGroups={channelGroups}
-            />
             <div className={classes.mainContainer}>
-                <ChannelList
-                    channels={channelsLeft}
-                    groups={selectedGroups}
-                    highlighted={highlighted}
-                    setHighlighted={setHighlighted}
-                />
-                <PlaylistControls
-                    channelsRight={channelsRight}
-                    channelsLeft={channelsLeft}
-                    setChannelsRight={setChannelsRight}
-                    setChannelsLeft={setChannelsLeft}
-                    highlighted={highlighted}
-                    setHighlighted={setHighlighted}
-                    setSelectedChannels={setSelectedChannels}
-                />
-                <ChannelList
-                    channels={channelsRight}
-                    groups={false}
-                    highlighted={highlighted}
-                    setHighlighted={setHighlighted}
-                />
+                {content}
             </div>
         </div>
+
+
     )
 }
 
